@@ -1,0 +1,125 @@
+PODS:
+  - Alamofire (4.2.0)
+  - Firebase (3.11.0):
+    - Firebase/Core (= 3.11.0)
+  - Firebase/Auth (3.11.0):
+    - Firebase/Core
+    - FirebaseAuth (= 3.1.0)
+  - Firebase/Core (3.11.0):
+    - FirebaseAnalytics (= 3.6.0)
+    - FirebaseCore (= 3.4.6)
+  - Firebase/Database (3.11.0):
+    - Firebase/Core
+    - FirebaseDatabase (= 3.1.1)
+  - Firebase/Storage (3.11.0):
+    - Firebase/Core
+    - FirebaseStorage (= 1.0.5)
+  - FirebaseAnalytics (3.6.0):
+    - FirebaseCore (~> 3.4)
+    - FirebaseInstanceID (~> 1.0)
+    - GoogleInterchangeUtilities (~> 1.2)
+    - GoogleSymbolUtilities (~> 1.1)
+    - GoogleToolboxForMac/NSData+zlib (~> 2.1)
+  - FirebaseAuth (3.1.0):
+    - FirebaseAnalytics (~> 3.6)
+    - GoogleToolboxForMac/NSDictionary+URLArguments (~> 2.1)
+    - GTMSessionFetcher/Core (~> 1.1)
+  - FirebaseCore (3.4.6):
+    - GoogleInterchangeUtilities (~> 1.2)
+    - GoogleToolboxForMac/NSData+zlib (~> 2.1)
+  - FirebaseDatabase (3.1.1):
+    - FirebaseAnalytics (~> 3.5)
+  - FirebaseInstanceID (1.0.8)
+  - FirebaseStorage (1.0.5):
+    - FirebaseAnalytics (~> 3.5)
+    - GTMSessionFetcher/Core (~> 1.1)
+  - GoogleInterchangeUtilities (1.2.2):
+    - GoogleSymbolUtilities (~> 1.1)
+  - GoogleMaps (2.1.1):
+    - GoogleMaps/Maps (= 2.1.1)
+  - GoogleMaps/Base (2.1.1)
+  - GoogleMaps/Maps (2.1.1):
+    - GoogleMaps/Base
+  - GooglePlaces (2.1.1):
+    - GoogleMaps/Base (= 2.1.1)
+  - GoogleSymbolUtilities (1.1.2)
+  - GoogleToolboxForMac/DebugUtils (2.1.1):
+    - GoogleToolboxForMac/Defines (= 2.1.1)
+  - GoogleToolboxForMac/Defines (2.1.1)
+  - GoogleToolboxForMac/NSData+zlib (2.1.1):
+    - GoogleToolboxForMac/Defines (= 2.1.1)
+  - GoogleToolboxForMac/NSDictionary+URLArguments (2.1.1):
+    - GoogleToolboxForMac/DebugUtils (= 2.1.1)
+    - GoogleToolboxForMac/Defines (= 2.1.1)
+    - GoogleToolboxForMac/NSString+URLArguments (= 2.1.1)
+  - GoogleToolboxForMac/NSString+URLArguments (2.1.1)
+  - GTMSessionFetcher/Core (1.1.8)
+  - MapboxDirections.swift (0.6.0):
+    - Polyline (~> 4.0.0)
+  - MapboxNavigation.swift (0.0.3):
+    - MapboxDirections.swift
+  - Material (2.4.10):
+    - Material/Core (= 2.4.10)
+  - Material/Core (2.4.10)
+  - Polyline (4.0.0)
+  - SwiftyJSON (3.1.4)
+  - SwiftyPickerPopover (2.4.1)
+  - Toucan (0.6.0)
+
+DEPENDENCIES:
+  - Alamofire
+  - Firebase
+  - Firebase/Auth
+  - Firebase/Database
+  - Firebase/Storage
+  - GoogleMaps
+  - GooglePlaces
+  - MapboxDirections.swift (from `https://github.com/mapbox/MapboxDirections.swift.git`, commit `ceaf58b780fc17ea44a9150041b602d017c1e567`)
+  - MapboxNavigation.swift (from `https://github.com/mapbox/MapboxNavigation.swift.git`, tag `v0.0.4`)
+  - Material
+  - SwiftyJSON
+  - SwiftyPickerPopover
+  - Toucan
+
+EXTERNAL SOURCES:
+  MapboxDirections.swift:
+    :commit: ceaf58b780fc17ea44a9150041b602d017c1e567
+    :git: https://github.com/mapbox/MapboxDirections.swift.git
+  MapboxNavigation.swift:
+    :git: https://github.com/mapbox/MapboxNavigation.swift.git
+    :tag: v0.0.4
+
+CHECKOUT OPTIONS:
+  MapboxDirections.swift:
+    :commit: ceaf58b780fc17ea44a9150041b602d017c1e567
+    :git: https://github.com/mapbox/MapboxDirections.swift.git
+  MapboxNavigation.swift:
+    :git: https://github.com/mapbox/MapboxNavigation.swift.git
+    :tag: v0.0.4
+
+SPEC CHECKSUMS:
+  Alamofire: aa2e09d871c9160ac53c90e83c68064a94e3dfbe
+  Firebase: b8134e285eb33201115bc688bc5d7f112923bc1f
+  FirebaseAnalytics: 9c67af0ebeb8d2146c9b4ea2616439affa947b58
+  FirebaseAuth: b436e4ecebe068bf8e8c6e4e29de5756ffe7ee24
+  FirebaseCore: 03da1cb32615569bbc2830a22f9ad753d9a02ef5
+  FirebaseDatabase: 6de92187481ff0e8e124064f21742e95ee883b02
+  FirebaseInstanceID: ba1e640935235e5fac39dfa816fe7660e72e1a8a
+  FirebaseStorage: 5738284835edb57f0e81d4ae5832bb17c1e4b5fa
+  GoogleInterchangeUtilities: d5bc4d88d5b661ab72f9d70c58d02ca8c27ad1f7
+  GoogleMaps: a5b5bbe47734e2443bde781a6aa64e69fdb6d785
+  GooglePlaces: 35636d86e5020cba3856eb988c09a5491de0a65a
+  GoogleSymbolUtilities: 631ee17048aa5e9ab133470d768ea997a5ef9b96
+  GoogleToolboxForMac: 8e329f1b599f2512c6b10676d45736bcc2cbbeb0
+  GTMSessionFetcher: 6f8d8b28b7e345549ac471071608170b31cb4977
+  MapboxDirections.swift: 4acd753d0079bae4f2fae2b2cbda98922909de09
+  MapboxNavigation.swift: 8759dbdcd54a5985801a7ac7d87a84846ee66dd4
+  Material: ef1e6da2e242d582205c87847a5346138894a633
+  Polyline: c6de7430bf6ff0bfff1f087343597b83b38fdb69
+  SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
+  SwiftyPickerPopover: fe139ca1bf1757393e3055b97af3ab659b7a4246
+  Toucan: 47485bbc9cb4541ef6318d6886103e6eaf16e919
+
+PODFILE CHECKSUM: 727c8af9ac7de81eeb190247953fff1e0515aa2e
+
+COCOAPODS: 1.2.0

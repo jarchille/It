@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VariablesViewState
+   version = "1.0">
+   <ContextStates>
+      <ContextState
+         contextName = "APIHandler.(createBusinessObject(business : JSON) -&gt; Business).(closure #3):ApiHandler.swift">
+      </ContextState>
+      <ContextState
+         contextName = "MainMapViewController.(tappedBusiness.didset).(closure #1):MainMapViewController.swift">
+      </ContextState>
+      <ContextState
+         contextName = "APIHandler.(createBusinessObject(business : JSON) -&gt; Business).(closure #3).(closure #1):ApiHandler.swift">
+      </ContextState>
+   </ContextStates>
+</VariablesViewState>

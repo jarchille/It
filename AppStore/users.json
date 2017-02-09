@@ -1,0 +1,42 @@
+[
+  {
+    "name": "Joe Bellis",
+    "image": "man1",
+  },
+  {
+    "name": "Drew Cartman",
+    "image": "man2",
+  },
+  {
+    "name": "Joel Billy",
+    "image": "man3",
+  },
+  {
+    "name": "Dean McLean",
+    "image": "man4",
+  },
+  {
+    "name": "Sean Ennis",
+    "image": "man5",
+  },
+  {
+    "name": "Laura Ingram",
+    "image": "woman1",
+  },
+  {
+    "name": "Hannah Granger",
+    "image": "woman2",
+  },
+  {
+    "name": "Linda Duels",
+    "image": "woman3",
+  },
+  {
+    "name": "Beth White",
+    "image": "woman4",
+  },
+  {
+    "name": "Rhea Golds",
+    "image": "woman5",
+  }
+]

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11542" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="ContactCell" customModule="AppStore" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="75"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="OB0-es-t7T">
+                    <rect key="frame" x="16" y="8" width="59" height="59"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="OB0-es-t7T" secondAttribute="height" multiplier="1:1" id="w2k-RM-kDu"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YdB-49-Gyt">
+                    <rect key="frame" x="83" y="27" width="284" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="YdB-49-Gyt" firstAttribute="leading" secondItem="OB0-es-t7T" secondAttribute="trailing" constant="8" id="H8N-l7-2ts"/>
+                <constraint firstItem="OB0-es-t7T" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="Lm3-nM-mvW"/>
+                <constraint firstItem="OB0-es-t7T" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="8" id="Ovj-NG-bcp"/>
+                <constraint firstAttribute="trailing" secondItem="YdB-49-Gyt" secondAttribute="trailing" constant="8" id="P1C-gX-9LH"/>
+                <constraint firstItem="OB0-es-t7T" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="16" id="SjN-dm-y2e"/>
+                <constraint firstAttribute="bottom" secondItem="OB0-es-t7T" secondAttribute="bottom" constant="8" id="aqd-nx-dbW"/>
+                <constraint firstItem="YdB-49-Gyt" firstAttribute="centerY" secondItem="OB0-es-t7T" secondAttribute="centerY" id="nvi-UC-arg"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="circleImage" destination="OB0-es-t7T" id="u7H-oJ-WYh"/>
+                <outlet property="nameLabel" destination="YdB-49-Gyt" id="82v-oK-vdI"/>
+            </connections>
+            <point key="canvasLocation" x="124" y="-238.5"/>
+        </view>
+    </objects>
+</document>
