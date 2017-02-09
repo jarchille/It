@@ -17,8 +17,6 @@ protocol infoBoxViewDelegate {
 class InfoBoxView: UIView {
     
     var delegate: infoBoxViewDelegate?
-    
-    @IBOutlet weak var starButton: FaveButton!
 
     
     @IBOutlet weak var likeLabel: UILabel!

@@ -269,7 +269,7 @@
                 <outlet property="declinedLabel_5" destination="Ypb-fI-prP" id="RPU-aV-IEz"/>
                 <outlet property="mapView" destination="XdW-ZM-5PO" id="pjK-3K-yJc"/>
             </connections>
-            <point key="canvasLocation" x="98.5" y="-1688.5"/>
+            <point key="canvasLocation" x="-9440" y="-1622"/>
         </view>
     </objects>
 </document>

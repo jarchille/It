@@ -43,7 +43,6 @@
 		768F66A31E44514800871203 /* Mapbox.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 768F66A11E44514800871203 /* Mapbox.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		76D69EE31E4BF0E100EF923E /* GroupSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76D69EE21E4BF0E100EF923E /* GroupSelectViewController.swift */; };
 		76D69EE61E4C0F3600EF923E /* TimePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76D69EE41E4C0F3600EF923E /* TimePickerViewController.swift */; };
-		76D69EE91E4C136A00EF923E /* PickerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 76D69EE81E4C136A00EF923E /* PickerView.xib */; };
 		76D69F121E4C23D000EF923E /* AbstractActionSheetPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 76D69EFF1E4C23D000EF923E /* AbstractActionSheetPicker.m */; };
 		76D69F131E4C23D000EF923E /* ActionSheetCustomPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 76D69F011E4C23D000EF923E /* ActionSheetCustomPicker.m */; };
 		76D69F141E4C23D000EF923E /* ActionSheetDatePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 76D69F041E4C23D000EF923E /* ActionSheetDatePicker.m */; };
@@ -117,7 +116,6 @@
 		768F66A11E44514800871203 /* Mapbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Mapbox.framework; sourceTree = "<group>"; };
 		76D69EE21E4BF0E100EF923E /* GroupSelectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupSelectViewController.swift; sourceTree = "<group>"; };
 		76D69EE41E4C0F3600EF923E /* TimePickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimePickerViewController.swift; sourceTree = "<group>"; };
-		76D69EE81E4C136A00EF923E /* PickerView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PickerView.xib; sourceTree = "<group>"; };
 		76D69EFE1E4C23D000EF923E /* AbstractActionSheetPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AbstractActionSheetPicker.h; sourceTree = "<group>"; };
 		76D69EFF1E4C23D000EF923E /* AbstractActionSheetPicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AbstractActionSheetPicker.m; sourceTree = "<group>"; };
 		76D69F001E4C23D000EF923E /* ActionSheetCustomPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActionSheetCustomPicker.h; sourceTree = "<group>"; };
@@ -290,7 +288,6 @@
 				76F9C8231E4A15D000B949BF /* ContactCell.xib */,
 				7632959E1E4050D800A65A5E /* InfoBoxView.xib */,
 				768F66051E43971000871203 /* _GroupCreate.xib */,
-				76D69EE81E4C136A00EF923E /* PickerView.xib */,
 				768F66091E43F48400871203 /* StatusPage.xib */,
 				76F9C8451E4AFB9400B949BF /* PopAnimator.swift */,
 				768F65CD1E42933B00871203 /* GroupCreate.xib */,
@@ -369,7 +366,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				76D69EE91E4C136A00EF923E /* PickerView.xib in Resources */,
 				7632959F1E4050D800A65A5E /* InfoBoxView.xib in Resources */,
 				768F66061E43971000871203 /* _GroupCreate.xib in Resources */,
 				76DC38061E46683B002BEF75 /* GoogleService-Info.plist in Resources */,
@@ -621,6 +617,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.tiy.AppStore;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_VERSION = 3.0.1;
 			};
 			name = Release;
