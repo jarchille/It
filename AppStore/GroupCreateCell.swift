@@ -22,6 +22,12 @@ class GroupCreateCell: UITableViewCell {
     @IBOutlet weak var profileImageVIew_2: UIImageView!
     @IBOutlet weak var profileNameLabel_2: UILabel!
     
+    @IBOutlet weak var profileImageView_3: UIImageView!
+    @IBOutlet weak var profileNameLabel_3: UILabel!
+    
+    @IBOutlet weak var profileImageView_4: UIImageView!
+    @IBOutlet weak var profileNameLabel_4: UILabel!
+    
     @IBOutlet weak var disclosureIndicator: UIImageView!
 
    

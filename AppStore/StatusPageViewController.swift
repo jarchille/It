@@ -19,7 +19,7 @@ import Toucan
 class StatusPageViewController: UIViewController, MGLMapViewDelegate {
 
     let myHouseCoords = CLLocationCoordinate2DMake(28.4741414, -81.3091644)
-    let ironYardCoords = CLLocationCoordinate2DMake(28.540941, -81.381257)
+    var ironYardCoords = CLLocationCoordinate2DMake(28.540941, -81.381257)
     
     let sourceIdentifier = "sourceIdentifier"
     let layerIdentifier = "layerIdentifier"
@@ -32,6 +32,7 @@ class StatusPageViewController: UIViewController, MGLMapViewDelegate {
     
     var navigation: RouteController?
     
+    var invitees: [String]?
     
     
     
@@ -41,6 +42,8 @@ class StatusPageViewController: UIViewController, MGLMapViewDelegate {
         
         setupMapNib()
         setupButton()
+        
+    
     
     }
     
@@ -114,7 +117,19 @@ class StatusPageViewController: UIViewController, MGLMapViewDelegate {
         mapNib.heightAnchor.constraint(equalTo: view.heightAnchor).isActive = true
         
         mapNib.acceptedLabel_0.text = "• Jonathan Archille"
-        mapNib.awaitingLabel_0.text = "• Michael Schilling"
+        
+        guard let amount = self.invitees?.count, let invitees = invitees else { return }
+        
+        mapNib.awaitingLabel_0.text = 1...amount ~= 1 ? "• \(invitees[0])" : ""
+        mapNib.awaitingLabel_1.text = 1...amount ~= 2 ? "• \(invitees[1])" : ""
+        mapNib.awaitingLabel_2.text = 1...amount ~= 3 ? "• \(invitees[2])" : ""
+        mapNib.awaitingLabel_3.text = 1...amount ~= 4 ? "• \(invitees[3])" : ""
+        mapNib.awaitingLabel_4.text = 1...amount ~= 5 ? "• \(invitees[4])" : ""
+    
+        
+        
+     
+        
         
         mapView = mapNib.mapView
         

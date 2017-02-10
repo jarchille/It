@@ -21,5 +21,7 @@ pod 'SwiftyPickerPopover'
 pod 'SwiftyJSON'
 pod 'GoogleMaps'
 pod 'Material'
+pod 'RandomColorSwift'
+pod 'SCLAlertView'
 pod 'Toucan'
 end

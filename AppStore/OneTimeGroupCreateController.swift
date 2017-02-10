@@ -34,14 +34,14 @@ class OneTimeGroupCreateController: UITableViewController {
         navigationController?.navigationBar.isTranslucent = false
         navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
         
-        navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(handleCancel))
+        navigationItem.leftBarButtonItem = UIBarButtonItem(image: Toucan(image: UIImage(named: "Undo-64")!).resizeByScaling(CGSize(width: 30, height: 30)).image.withRenderingMode(.alwaysOriginal), style: .plain, target: self, action: #selector(handleCancel))
         
         fetchUsers()
         prepareButton()
         
         //navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(handleCancel))
         
-        title = "Who are you inviting?"
+        title = "Contacts"
         
         
         
@@ -136,7 +136,17 @@ class OneTimeGroupCreateController: UITableViewController {
         DatePickerPopover.appearFrom(originView: button, baseViewController: self, title: "What's a good time?", dateMode: .time, initialDate: Date(), doneAction: { time in
             
             DispatchQueue.main.async {
-                self.present(StatusPageViewController(), animated: true, completion: nil)
+                let nextVC = StatusPageViewController()
+                if let destination = MainMapViewController.rallyPoint {
+                nextVC.ironYardCoords = destination
+                }
+                var selectedNames = [String]()
+                for index in self.tableView.indexPathsForSelectedRows! {
+                    
+                    selectedNames.append(self.allContacts[index.row].name!)
+                }
+                nextVC.invitees = selectedNames
+                self.present(nextVC, animated: true, completion: nil)
             }
             
             

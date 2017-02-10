@@ -16,6 +16,8 @@ import Material
 
 class MainMapViewController: UIViewController, GMSMapViewDelegate, ProfileImageDelgate {
     
+    static var rallyPoint: CLLocationCoordinate2D?
+    
     var currentMarker: GMSMarker = {
         let marker = GMSMarker()
         marker.icon = Toucan(image: #imageLiteral(resourceName: "down_arrow")).resize(CGSize(width: 20, height: 32), fitMode: Toucan.Resize.FitMode.crop).image
@@ -39,7 +41,7 @@ class MainMapViewController: UIViewController, GMSMapViewDelegate, ProfileImageD
     
     var tappedBusiness: Business! {
         didSet {
-            
+            MainMapViewController.rallyPoint = tappedBusiness.coordinates
             DispatchQueue.main.async {
                 self.infoBoxView.addressLabel.text = self.tappedBusiness.address
                 self.infoBoxView.locationNameLabel.text = self.tappedBusiness.name
@@ -138,14 +140,14 @@ extension MainMapViewController: infoBoxViewDelegate, GMSAutocompleteViewControl
         
         self.dismiss(animated: true, completion: nil)
         
-        currentMarker.position = place.coordinate
-        let camera = GMSCameraPosition.camera(withLatitude: place.coordinate.latitude, longitude: place.coordinate.longitude, zoom: 15.0)
+        
+        
+        let camera = GMSCameraPosition.camera(withLatitude: place.coordinate.latitude, longitude: place.coordinate.longitude, zoom: 15.0, bearing: 0, viewingAngle: 65.0)
         mainMapView?.camera = camera
         
-        DispatchQueue.main.async {
-            self.currentMarker.map = self.mainMapView
-        }
+        currentMarker.position = place.coordinate
         
+        MainMapViewController.rallyPoint = place.coordinate
     
         
         
@@ -197,6 +199,7 @@ extension MainMapViewController: infoBoxViewDelegate, GMSAutocompleteViewControl
             
             DispatchQueue.main.async {
                 //self.toggleInfoBox()
+                
             }
             
         })
@@ -235,15 +238,15 @@ extension MainMapViewController: infoBoxViewDelegate, GMSAutocompleteViewControl
             
             let searchButton = FabButton(image: #imageLiteral(resourceName: "search"))
             searchButton.pulseColor = .white
-            searchButton.backgroundColor = UIColor.rgb(redValue: 195, greenValue: 195, blueValue: 195, alpha: 1)
+            searchButton.backgroundColor = UIColor.rgb(redValue: 50, greenValue: 73, blueValue: 100, alpha: 0.8)
             searchButton.addTarget(self, action: #selector(openSearch), for: .touchUpInside)
             
-            let groupCreateButton = FabButton(image: Toucan(image: #imageLiteral(resourceName: "like")).resizeByScaling(CGSize(width: 30, height: 30)).image)
-            groupCreateButton.backgroundColor = UIColor.rgb(redValue: 195, greenValue: 195, blueValue: 195, alpha: 1)
+            let groupCreateButton = FabButton(image: Toucan(image: UIImage(named: "add_group")!).resizeByScaling(CGSize(width: 30, height: 30)).image)
+            groupCreateButton.backgroundColor = UIColor.rgb(redValue: 50, greenValue: 73, blueValue: 100, alpha: 0.8)
             groupCreateButton.addTarget(self, action: #selector(showGroupCreateTVC), for: .touchUpInside)
             
             view.layout(searchButton).width(45).height(45).center(offsetX: 150, offsetY: -225)
-            view.layout(groupCreateButton).width(45).height(45).center(offsetX: 150, offsetY: -173)
+            view.layout(groupCreateButton).width(45).height(45).center(offsetX: 150, offsetY: -163)
             
             apiHandler.searchYelp(coordinates: CLLocationCoordinate2D(latitude: 28.4741414, longitude: -81.3091644), completion: { (result, error) in
                 
@@ -262,16 +265,16 @@ extension MainMapViewController: infoBoxViewDelegate, GMSAutocompleteViewControl
         
         
         func showGroupSelectTVC() {
+            let transition = CATransition()
+            transition.duration = 0.5
+            transition.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
+            transition.type = kCATransitionPush
+            transition.subtype = kCATransitionFromRight
             
-            //show(UINavigationController(rootViewController: GroupCreateTVC()), sender: self)
-            //present(UINavigationController(rootViewController: AllContactsViewController()), animated: true, completion: nil)
+            let containerView = self.view.window
+            containerView?.layer.add(transition, forKey: nil)
+            present(UINavigationController(rootViewController: GroupSelectViewController()), animated: false, completion: nil)
             
-            
-            let contactsVC = UINavigationController(rootViewController: GroupSelectViewController())
-            contactsVC.modalTransitionStyle = .flipHorizontal
-            present(contactsVC, animated: true, completion: nil)
-            
-    
             
         }
     
@@ -279,7 +282,7 @@ extension MainMapViewController: infoBoxViewDelegate, GMSAutocompleteViewControl
         let transition = CATransition()
         transition.duration = 0.5
         transition.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
-        transition.type = kCATransitionReveal
+        transition.type = kCATransitionPush
         transition.subtype = kCATransitionFromLeft
         
         let containerView = self.view.window

@@ -12,13 +12,19 @@ import Toucan
 import SwiftyPickerPopover
 import Material
 import Firebase
+import SCLAlertView
 
+protocol GroupMemberDelegate {
+    func chosenMembers(members: [String], groupName: String)
+}
 
 class FavoritedGroupCreateController: UITableViewController {
     
     var allContacts = [User]()
-    var selectedContacts = [User]()
+    //var selectedContacts = [User]()
     var button: RaisedButton!
+    
+    var delegate: GroupMemberDelegate?
     
     let globalTint = UIColor(hue: 202 / 359, saturation: 3 / 100, brightness: 98 / 100, alpha: 1)
     
@@ -91,13 +97,12 @@ class FavoritedGroupCreateController: UITableViewController {
         
         let cell = tableView.cellForRow(at: indexPath)!
         cell.accessoryType = .checkmark
-        print(tableView.indexPathsForSelectedRows)
     }
     
     override func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
         let cell = tableView.cellForRow(at: indexPath)!
         cell.accessoryType = .none
-        print(tableView.indexPathsForSelectedRows)
+
     }
     
     
@@ -111,7 +116,27 @@ class FavoritedGroupCreateController: UITableViewController {
     
     
     func saveGroup() {
-        let alert = UIAlertController(title: "Cool, a new group", message: "Name your new group", preferredStyle: .alert)
+        
+        let appearance = SCLAlertView.SCLAppearance(kDefaultShadowOpacity: 0.7, kCircleTopPosition: 0.0, kCircleBackgroundTopPosition: 6.0, kCircleHeight: 56.0, kCircleIconHeight: 20.0, kTitleTop: 30.0, kTitleHeight: 25.0, kWindowWidth: 240.0, kWindowHeight: 178.0, kTextHeight: 90.0, kTextFieldHeight: 45.0, kTextViewdHeight: 80.0, kButtonHeight: 45.0, kTitleFont: UIFont.systemFont(ofSize: 20), kTextFont: UIFont.systemFont(ofSize: 14), kButtonFont: UIFont.boldSystemFont(ofSize: 14), showCloseButton: false, showCircularIcon: false, shouldAutoDismiss: true, contentViewCornerRadius: 5.0, fieldCornerRadius: 3.0, buttonCornerRadius: 3.0, hideWhenBackgroundViewIsTapped: true, contentViewColor: UIColor.rgb(redValue: 50, greenValue: 73, blueValue: 100, alpha: 1), contentViewBorderColor: .white, titleColor: .white)
+        let alert = SCLAlertView(appearance: appearance)
+        let txt = alert.addTextField("")
+        alert.addButton("Set Group Name") {
+            var selectedNames = [String]()
+            for index in self.tableView.indexPathsForSelectedRows! {
+                
+                selectedNames.append(self.allContacts[index.row].name!)
+            
+                self.handleCancel()
+            }
+            
+            self.delegate?.chosenMembers(members: selectedNames, groupName: txt.text!)
+        
+        }
+        alert.showEdit("Cool, a new group", subTitle:"This group is called...")
+        
+        
+
+        /*let alert = UIAlertController(title: "Cool, a new group", message: "Name your new group", preferredStyle: .alert)
         
         let saveAction = UIAlertAction(title: "Save", style: .default, handler: { _ in
             
@@ -131,7 +156,7 @@ class FavoritedGroupCreateController: UITableViewController {
         alert.addAction(saveAction)
         alert.addAction(cancelAction)
         
-        present(alert, animated: true, completion: nil)
+        present(alert, animated: true, completion: nil)*/
     }
     
     func fetchUsers() {

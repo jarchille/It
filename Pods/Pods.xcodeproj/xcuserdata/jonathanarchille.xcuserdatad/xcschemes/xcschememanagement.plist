@@ -54,6 +54,16 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>RandomColorSwift.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>SCLAlertView.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>SwiftyJSON.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -82,17 +92,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>32A4A0A27EE64AA430BAA3FE688494D3</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>367E317BC931D2CEAF6293407D2544D2</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>3AC55833C8472DC1E04ACCA8E6669449</key>
+		<key>4A3387BCF465FD4A7FBD25D1F5D956D0</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -102,12 +107,22 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>693816C757C39F02DFD3C80398DE2DB6</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>775588041FD14C2C22E4C369A067998E</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>88E9EC28B8B46C3631E6B242B50F4442</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>9C3EDF371F40AA6E822C1AB9C3172A40</key>
+		<key>94BC6D5F382C64DAE93A48DD2ACB6890</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -122,17 +137,22 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>BD68F5DB3207546BED00BC93885A794A</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>C052BEBFBD0AB5218CC64BA3450F6547</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>D6781338AAC83341ABB6C80FFAB04FFE</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>EEF4F92E96B2B896F1999328E881AC7F</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F05C09DE39A3688E906983798244D1BA</key>
 		<dict>
 			<key>primary</key>
 			<true/>

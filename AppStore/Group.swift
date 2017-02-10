@@ -9,15 +9,16 @@
 import Foundation
 import Firebase
 
-struct Group {
-    let name: String
+class Group {
+    var name: String = ""
     var members: [String] = []
     
-    init(snapshot: FIRDataSnapshot) {
-        name = snapshot.key
-        let snapshotValue = snapshot.value as! NSArray
+    /*init(snapshot: Any) {
+        name = (snapshot as! FIRDataSnapshot).key
+        let snapshotValue = (snapshot as! FIRDataSnapshot).value as! NSArray
         for snap in snapshotValue{
             members.append(snap as! String)
         }
-    }
+        
+    }*/
 }

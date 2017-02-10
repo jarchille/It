@@ -62,6 +62,8 @@ PODS:
     - Material/Core (= 2.4.10)
   - Material/Core (2.4.10)
   - Polyline (4.0.0)
+  - RandomColorSwift (1.0.0)
+  - SCLAlertView (0.7.0)
   - SwiftyJSON (3.1.4)
   - SwiftyPickerPopover (2.4.1)
   - Toucan (0.6.0)
@@ -77,6 +79,8 @@ DEPENDENCIES:
   - MapboxDirections.swift (from `https://github.com/mapbox/MapboxDirections.swift.git`, commit `ceaf58b780fc17ea44a9150041b602d017c1e567`)
   - MapboxNavigation.swift (from `https://github.com/mapbox/MapboxNavigation.swift.git`, tag `v0.0.4`)
   - Material
+  - RandomColorSwift
+  - SCLAlertView
   - SwiftyJSON
   - SwiftyPickerPopover
   - Toucan
@@ -116,10 +120,12 @@ SPEC CHECKSUMS:
   MapboxNavigation.swift: 8759dbdcd54a5985801a7ac7d87a84846ee66dd4
   Material: ef1e6da2e242d582205c87847a5346138894a633
   Polyline: c6de7430bf6ff0bfff1f087343597b83b38fdb69
+  RandomColorSwift: 9f85058b721665d52d239ca166a913e083506444
+  SCLAlertView: 8a14ffc40590c619e183eed2298b854385f30be1
   SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
   SwiftyPickerPopover: fe139ca1bf1757393e3055b97af3ab659b7a4246
   Toucan: 47485bbc9cb4541ef6318d6886103e6eaf16e919
 
-PODFILE CHECKSUM: 727c8af9ac7de81eeb190247953fff1e0515aa2e
+PODFILE CHECKSUM: 441adb7337c23aeb5a8a285aea0ec1b5f6cc80ec
 
 COCOAPODS: 1.2.0

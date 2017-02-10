@@ -11,6 +11,7 @@ import Alamofire
 import CoreLocation
 import SwiftyJSON
 import Toucan
+import Firebase
 
 
 protocol ProfileImageDelgate {
@@ -101,7 +102,7 @@ class APIHandler {
             }).resume()
         }
         
-        //Alamofire.request(<#T##url: URLConvertible##URLConvertible#>)
+
         
         
         
@@ -140,8 +141,19 @@ class APIHandler {
             }
             
         })
+        
+        if FIRAuth.auth()?.currentUser?.uid != nil {
+            setUsers()
+        } else {
+            print("user authenticaion failed")
+        }
     }
     
+    func setUsers() {
+    
+    
+    }
+        
     
 }
 

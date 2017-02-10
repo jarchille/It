@@ -22,17 +22,17 @@ class TabBarController: UITabBarController {
         let offset = UIOffsetMake(0, -3)
         
         let groupCreateController =  UINavigationController(rootViewController: GroupCreateTVC())
-        groupCreateController.tabBarItem.image = list_icon.withRenderingMode(.alwaysOriginal)
+        groupCreateController.tabBarItem.image = list_icon
         groupCreateController.tabBarItem.titlePositionAdjustment = offset
         groupCreateController.tabBarItem.title = "Groups"
         
-        let favLocationsController = UINavigationController(rootViewController: FavoriteLocationsVC())
+        let favLocationsController = UINavigationController(rootViewController: StatusPageViewController())
         favLocationsController.tabBarItem.titlePositionAdjustment = offset
-        favLocationsController.tabBarItem.image = settings_icon.withRenderingMode(.alwaysOriginal)
+        favLocationsController.tabBarItem.image = settings_icon
         favLocationsController.tabBarItem.title = "Favorites"
         
         let mapController = MainMapViewController()
-        mapController.tabBarItem.image = pin_icon.withRenderingMode(.alwaysOriginal)
+        mapController.tabBarItem.image = pin_icon
         mapController.tabBarItem.titlePositionAdjustment = offset
         mapController.tabBarItem.title = "Map"
        
@@ -40,7 +40,9 @@ class TabBarController: UITabBarController {
         viewControllers = [groupCreateController, mapController, favLocationsController]
         self.selectedIndex = 1
         
-
+        //tabBar.barTintColor = .darkGray
+        tabBar.barStyle = .black
+        
     }
 
 

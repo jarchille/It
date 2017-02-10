@@ -19,7 +19,6 @@ class InfoBoxView: UIView {
     var delegate: infoBoxViewDelegate?
 
     
-    @IBOutlet weak var likeLabel: UILabel!
     @IBOutlet var locationImageView: UIImageView!
     @IBOutlet var locationNameLabel: UILabel!
     @IBOutlet var addressLabel: UILabel!
@@ -28,7 +27,8 @@ class InfoBoxView: UIView {
         delegate?.dismissView()
         print("Tap inside xib")
     }
-    @IBAction func placeSelected(_ sender: Any) {
+
+    @IBAction func setRallyPoint(_ sender: UIButton) {
         delegate?.showGroupSelectTVC()
     }
     
