@@ -87,13 +87,11 @@ class OneTimeGroupCreateController: UITableViewController {
         
         let cell = tableView.cellForRow(at: indexPath)!
         cell.accessoryType = .checkmark
-        print(tableView.indexPathsForSelectedRows)
     }
     
     override func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
         let cell = tableView.cellForRow(at: indexPath)!
         cell.accessoryType = .none
-        print(tableView.indexPathsForSelectedRows)
     }
     
     
@@ -138,7 +136,7 @@ class OneTimeGroupCreateController: UITableViewController {
             DispatchQueue.main.async {
                 let nextVC = StatusPageViewController()
                 if let destination = MainMapViewController.rallyPoint {
-                nextVC.ironYardCoords = destination
+                nextVC.destinationCoords = destination
                 }
                 var selectedNames = [String]()
                 for index in self.tableView.indexPathsForSelectedRows! {

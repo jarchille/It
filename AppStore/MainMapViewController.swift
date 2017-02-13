@@ -68,7 +68,7 @@ class MainMapViewController: UIViewController, GMSMapViewDelegate, ProfileImageD
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let camera = GMSCameraPosition.camera(withLatitude: 28.540846, longitude: -81.379086, zoom: 16.0, bearing: 0, viewingAngle: 65.0)
+        let camera = GMSCameraPosition.camera(withLatitude: 28.540846, longitude: -81.379086, zoom: 16.0)
         mainMapView = GMSMapView.map(withFrame: self.view.frame, camera: camera)
         mainMapView?.settings.myLocationButton = false
         mainMapView?.settings.compassButton = true
@@ -114,18 +114,7 @@ class MainMapViewController: UIViewController, GMSMapViewDelegate, ProfileImageD
             })
             self.bottomConstraint.isActive = true
             isVisible = true
-        } /*else {
-         print("visible")
-         self.bottomConstraint.isActive = false
-         UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
-         
-         self.bottomConstraint.constant = self.infoBoxView.frame.height
-         self.view.layoutIfNeeded()
-         
-         })
-         self.bottomConstraint.isActive = true
-         isVisible = false
-         }*/
+        }
     }
     
     
@@ -142,7 +131,8 @@ extension MainMapViewController: infoBoxViewDelegate, GMSAutocompleteViewControl
         
         
         
-        let camera = GMSCameraPosition.camera(withLatitude: place.coordinate.latitude, longitude: place.coordinate.longitude, zoom: 15.0, bearing: 0, viewingAngle: 65.0)
+        let camera = GMSCameraPosition.camera(withLatitude: place.coordinate.latitude, longitude: place.coordinate.longitude, zoom: 15.0)
+        
         mainMapView?.camera = camera
         
         currentMarker.position = place.coordinate
@@ -255,14 +245,9 @@ extension MainMapViewController: infoBoxViewDelegate, GMSAutocompleteViewControl
                 DispatchQueue.main.async {
                     //self.toggleInfoBox()
                 }
-                
             })
-
-
         }
-    
-    
-        
+
         
         func showGroupSelectTVC() {
             let transition = CATransition()
@@ -291,22 +276,11 @@ extension MainMapViewController: infoBoxViewDelegate, GMSAutocompleteViewControl
 
     }
     
-    
     func dismissView() {
             print("Tap received")
             
         }
-        
-        
-        
-
-    
     
 }
 
-extension MainMapViewController: UIViewControllerTransitioningDelegate {
-
-
-
-}
 

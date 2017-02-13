@@ -18,8 +18,8 @@ import Toucan
 
 class StatusPageViewController: UIViewController, MGLMapViewDelegate {
 
-    let myHouseCoords = CLLocationCoordinate2DMake(28.4741414, -81.3091644)
-    var ironYardCoords = CLLocationCoordinate2DMake(28.540941, -81.381257)
+    let ironYardCoords = CLLocationCoordinate2DMake(28.540941, -81.381257)
+    var destinationCoords = CLLocationCoordinate2DMake(28.4741414, -81.3091644)
     
     let sourceIdentifier = "sourceIdentifier"
     let layerIdentifier = "layerIdentifier"
@@ -51,7 +51,7 @@ class StatusPageViewController: UIViewController, MGLMapViewDelegate {
         
         let directions = Directions(accessToken: token)
     
-        let options = RouteOptions(coordinates: [myHouseCoords, ironYardCoords])
+        let options = RouteOptions(coordinates: [ironYardCoords, destinationCoords])
         options.includesSteps = true
         options.routeShapeResolution = .full
         options.profileIdentifier = MBDirectionsProfileIdentifierAutomobileAvoidingTraffic
@@ -139,7 +139,7 @@ class StatusPageViewController: UIViewController, MGLMapViewDelegate {
         getRoute()
         
         DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1)) {
-            self.startNavigation(self.userRoute!)
+            self.startNavigation((self.userRoute ?? nil)!)
         }
 
     }

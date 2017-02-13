@@ -63,7 +63,6 @@ class GroupCreateTVC: UITableViewController {
         
     groupRef = FIRDatabase.database().reference(withPath: "users").child("-Kc_rBtGYDtxY1hhV6Ie/favoriteGroups")
         groupRef.observeSingleEvent(of: .value, with: { snapshot in
-            print(snapshot)
             
             for item in snapshot.children {
                 //let group = Group(snapshot: item as! FIRDataSnapshot)
@@ -170,7 +169,7 @@ class GroupCreateTVC: UITableViewController {
         headerView.backgroundColor = .purple
         let label = UILabel()
         label.textAlignment = .center
-        label.attributedText = NSAttributedString(string: "Favorite Groups", attributes: [NSForegroundColorAttributeName: UIColor.white, NSFontAttributeName: UIFont(name: "Avenir-Heavy", size: 16)])
+        label.attributedText = NSAttributedString(string: "Add a group!", attributes: [NSForegroundColorAttributeName: UIColor.white, NSFontAttributeName: UIFont(name: "Avenir-Heavy", size: 16)])
         label.textColor = .white
         label.translatesAutoresizingMaskIntoConstraints = false
         headerView.addSubview(label)
@@ -178,6 +177,27 @@ class GroupCreateTVC: UITableViewController {
                                      label.centerYAnchor.constraint(equalTo: headerView.centerYAnchor)])
         
         return headerView
+    }
+    
+    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        let groupToDelete = groups[indexPath.row]
+        groupRef.child(groupToDelete.name).removeValue(completionBlock: { (error, _) in
+            if error != nil {
+            print("Firebase deletion error")
+                return
+            }
+            
+            self.groups.remove(at: indexPath.row)
+            
+            DispatchQueue.main.async {
+                self.tableView.deleteRows(at: [indexPath], with: .automatic)
+                self.tableView.reloadData()
+            }
+        })
     }
     
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {

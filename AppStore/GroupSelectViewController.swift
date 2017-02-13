@@ -107,35 +107,35 @@ class GroupSelectViewController: UITableViewController {
         if 1...amount ~= 1 {
             let firstName = ((groups[indexPath.row].members).first)?.components(separatedBy: " ").first
             let lastName =  ((groups[indexPath.row].members).first)?.components(separatedBy: " ").last
-            cell.profileImageView_0.image = FGInitialCircleImage.circleImage(firstName! as NSString, lastName: lastName! as NSString, size: 40, borderWidth: 0, borderColor: .white, backgroundColor: randomColor(), textColor: .white)
+            cell.profileImageView_0.image = FGInitialCircleImage.circleImage(firstName! as NSString, lastName: lastName! as NSString, size: 40, borderWidth: 0, borderColor: .white, backgroundColor: randomColor(hue: .blue, luminosity: .light), textColor: .white)
             cell.profileNameLabel_0.text = "\(firstName!) \(lastName!.substring(to: (lastName!.index((lastName!.startIndex), offsetBy: 1))).capitalized)."
         }
         
         if 1...amount ~= 2 {
             let firstName = ((groups[indexPath.row].members)[1]).components(separatedBy: " ").first
             let lastName =  ((groups[indexPath.row].members)[1]).components(separatedBy: " ").last
-            cell.profileImageView_1.image = FGInitialCircleImage.circleImage(firstName! as NSString, lastName: lastName! as NSString, size: 40, borderWidth: 0, borderColor: .white, backgroundColor: randomColor(), textColor: .white)
+            cell.profileImageView_1.image = FGInitialCircleImage.circleImage(firstName! as NSString, lastName: lastName! as NSString, size: 40, borderWidth: 0, borderColor: .white, backgroundColor: randomColor(hue: .blue, luminosity: .light), textColor: .white)
             cell.profileNameLabel_1.text = "\(firstName!) \(lastName!.substring(to: (lastName!.index((lastName!.startIndex), offsetBy: 1))).capitalized)."
         }
         
         if 1...amount ~= 3 {
             let firstName = ((groups[indexPath.row].members)[2]).components(separatedBy: " ").first
             let lastName =  ((groups[indexPath.row].members)[2]).components(separatedBy: " ").last
-            cell.profileImageVIew_2.image = FGInitialCircleImage.circleImage(firstName! as NSString, lastName: lastName! as NSString, size: 40, borderWidth: 0, borderColor: .white, backgroundColor: randomColor(), textColor: .white)
+            cell.profileImageVIew_2.image = FGInitialCircleImage.circleImage(firstName! as NSString, lastName: lastName! as NSString, size: 40, borderWidth: 0, borderColor: .white, backgroundColor: randomColor(hue: .blue, luminosity: .light), textColor: .white)
             cell.profileNameLabel_2.text = "\(firstName!) \(lastName!.substring(to: (lastName!.index((lastName!.startIndex), offsetBy: 1))).capitalized)."
         }
         
         if 1...amount ~= 4 {
             let firstName = ((groups[indexPath.row].members)[3]).components(separatedBy: " ").first
             let lastName =  ((groups[indexPath.row].members)[3]).components(separatedBy: " ").last
-            cell.profileImageView_3.image = FGInitialCircleImage.circleImage(firstName! as NSString, lastName: lastName! as NSString, size: 40, borderWidth: 0, borderColor: .white, backgroundColor: randomColor(), textColor: .white)
+            cell.profileImageView_3.image = FGInitialCircleImage.circleImage(firstName! as NSString, lastName: lastName! as NSString, size: 40, borderWidth: 0, borderColor: .white, backgroundColor: randomColor(hue: .blue, luminosity: .light), textColor: .white)
             cell.profileNameLabel_3.text = "\(firstName!) \(lastName!.substring(to: (lastName!.index((lastName!.startIndex), offsetBy: 1))).capitalized)."
         }
         
         if 1...amount ~= 5 {
             let firstName = ((groups[indexPath.row].members)[4]).components(separatedBy: " ").first
             let lastName =  ((groups[indexPath.row].members)[4]).components(separatedBy: " ").last
-            cell.profileImageView_4.image = FGInitialCircleImage.circleImage(firstName! as NSString, lastName: lastName! as NSString, size: 40, borderWidth: 0, borderColor: .white, backgroundColor: randomColor(), textColor: .white)
+            cell.profileImageView_4.image = FGInitialCircleImage.circleImage(firstName! as NSString, lastName: lastName! as NSString, size: 40, borderWidth: 0, borderColor: .white, backgroundColor: randomColor(hue: .blue, luminosity: .light), textColor: .white)
             cell.profileNameLabel_4.text = "\(firstName!) \(lastName!.substring(to: (lastName!.index((lastName!.startIndex), offsetBy: 1))).capitalized)."
             
         }
@@ -181,7 +181,12 @@ class GroupSelectViewController: UITableViewController {
         DatePickerPopover.appearFrom(originView: popoverAnchorView, baseViewController: self, title: "What's a good time?", dateMode: .time, initialDate: Date(), doneAction: { time in
             
             DispatchQueue.main.async {
-                self.present(StatusPageViewController(), animated: true, completion: nil)
+                let nextVC = StatusPageViewController()
+                if let destination = MainMapViewController.rallyPoint {
+                    nextVC.destinationCoords = destination
+                }
+                nextVC.invitees = self.groups[indexPath.row].members
+                self.present(nextVC, animated: true, completion: nil)
             }
             
         }, cancelAction: {
@@ -202,6 +207,29 @@ class GroupSelectViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 105
     }
+    
+    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        let groupToDelete = groups[indexPath.row]
+        groupRef.child(groupToDelete.name).removeValue(completionBlock: { (error, _) in
+            if error != nil {
+                print("Firebase deletion error")
+                return
+            }
+            
+            self.groups.remove(at: indexPath.row)
+            
+            DispatchQueue.main.async {
+                self.tableView.deleteRows(at: [indexPath], with: .automatic)
+                self.tableView.reloadData()
+            }
+        })
+    }
+    
+
     
     
     

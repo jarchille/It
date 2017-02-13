@@ -133,30 +133,6 @@ class FavoritedGroupCreateController: UITableViewController {
         
         }
         alert.showEdit("Cool, a new group", subTitle:"This group is called...")
-        
-        
-
-        /*let alert = UIAlertController(title: "Cool, a new group", message: "Name your new group", preferredStyle: .alert)
-        
-        let saveAction = UIAlertAction(title: "Save", style: .default, handler: { _ in
-            
-            guard let textField = alert.textFields?.first,
-                let text = textField.text else { return }
-            
-            
-            
-            
-            self.handleCancel()
-        
-        })
-        
-        let cancelAction = UIAlertAction(title: "Cancel", style: .default)
-        
-        alert.addTextField(configurationHandler: nil)
-        alert.addAction(saveAction)
-        alert.addAction(cancelAction)
-        
-        present(alert, animated: true, completion: nil)*/
     }
     
     func fetchUsers() {

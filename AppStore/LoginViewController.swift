@@ -80,7 +80,6 @@ class LoginViewController: UIViewController {
         view.addSubview(emailTextField)
         view.addSubview(passwordTextField)
         view.addSubview(emailLoginButton)
-        //view.addSubview(fbLoginButton)
         view.addSubview(orTextLabel)
         view.addSubview(registerButton)
         
@@ -110,13 +109,6 @@ class LoginViewController: UIViewController {
         emailLoginButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         emailLoginButton.heightAnchor.constraint(equalToConstant: 44).isActive = true
         
-        /*fbLoginButton.delegate = self
-         fbLoginButton.translatesAutoresizingMaskIntoConstraints = false
-         fbLoginButton.topAnchor.constraint(equalTo: emailLoginButton.bottomAnchor, constant: 50).isActive = true
-         fbLoginButton.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.85).isActive = true
-         fbLoginButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-         fbLoginButton.heightAnchor.constraint(equalToConstant: 44).isActive = true*/
-        
         registerButton.translatesAutoresizingMaskIntoConstraints = false
         registerButton.topAnchor.constraint(equalTo: emailLoginButton.bottomAnchor, constant: 50).isActive = true
         registerButton.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.85).isActive = true
@@ -143,11 +135,6 @@ class LoginViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    func getCurrentPlace() {
-        
-        
-        
-    }
     
     func handleRegister() {
         guard let email = emailTextField.text, let password = passwordTextField.text else { return }
