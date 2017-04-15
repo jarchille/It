@@ -177,9 +177,9 @@ class GroupSelectViewController: UITableViewController {
             self.navigationController?.navigationBar.alpha = 0.5
             
         })
-        
+
         DatePickerPopover.appearFrom(originView: popoverAnchorView, baseViewController: self, title: "What's a good time?", dateMode: .time, initialDate: Date(), doneAction: { time in
-            
+ 
             DispatchQueue.main.async {
                 let nextVC = StatusPageViewController()
                 if let destination = MainMapViewController.rallyPoint {
@@ -342,3 +342,5 @@ extension Sequence {
     
     
 }
+
+

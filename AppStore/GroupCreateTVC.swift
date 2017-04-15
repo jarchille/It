@@ -62,12 +62,14 @@ class GroupCreateTVC: UITableViewController {
     func configureDatabase() {
         
     groupRef = FIRDatabase.database().reference(withPath: "users").child("-Kc_rBtGYDtxY1hhV6Ie/favoriteGroups")
+        //groupRef.observe(.value, with: <#T##(FIRDataSnapshot) -> Void#>)
         groupRef.observeSingleEvent(of: .value, with: { snapshot in
             
             for item in snapshot.children {
                 //let group = Group(snapshot: item as! FIRDataSnapshot)
                 let group = Group()
                 group.name = (item as! FIRDataSnapshot).key
+                print(group.name)
                 let snapshotValue = (item as! FIRDataSnapshot).value as! NSArray
                 for snap in snapshotValue {
                     group.members.append(snap as! String)
@@ -241,14 +243,13 @@ extension GroupCreateTVC: GroupMemberDelegate {
 
     
     func chosenMembers(members: [String], groupName: String) {
+        let values = ["\(groupName)": members]
+         groupRef.updateChildValues(values)
+        
         let newGroup = Group()
         newGroup.name = groupName
         newGroup.members = members
         self.groups.append(newGroup)
-        let values = ["\(groupName)": members]
-        
-        
-        groupRef.updateChildValues(values)
         
         DispatchQueue.main.async {
             self.tableView.reloadData()
